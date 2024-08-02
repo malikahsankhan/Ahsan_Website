@@ -1,5 +1,11 @@
+import Header from "@/components/header/header";
 import { Inter } from "next/font/google";
+import Link from "next/link";
+import Footer from "@/components/footer/footer";
 import "./globals.css";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ReduxProvider from "@/components/reduxProvider/reduxProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +17,29 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+      </head>
+      <body className={inter.className}>
+
+        <ReduxProvider>
+          <Header></Header>
+         </ReduxProvider>
+
+{/* dynamically change hone waley page.js */}
+<ReduxProvider>
+        {children}
+  </ReduxProvider>
+
+
+        <Footer></Footer>
+
+      <ToastContainer></ToastContainer>
+
+
+        </body>
     </html>
   );
 }

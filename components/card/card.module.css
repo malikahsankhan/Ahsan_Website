@@ -1,0 +1,9 @@
+.card img{
+    max-height: 150px;
+}
+
+.card{
+    /* background-color: red; */
+    width: 250px !important;
+    height: 300px !important;
+}
